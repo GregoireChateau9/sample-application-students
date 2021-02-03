@@ -48,5 +48,5 @@ services:
 
 addons:
   sonarcloud:
-    organization: "GregoireChateau9"
+    organization: "chateauneuf"
     token: "$SONARCLOUD_TOKEN"
