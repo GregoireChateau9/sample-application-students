@@ -27,7 +27,7 @@ jobs:
         - cd sample-application-backend
       script:
         - docker-compose build
-        - Docker login -u $DOCKERUSR -p $DOCKERPSW
+        - docker login -u $DOCKERUSR -p $DOCKERPSW
         - docker-compose push
     - stage: "Package"
       before_script:
