@@ -8,6 +8,7 @@ stages:
 jobs:
   include:
     - stage: "Build and Test"
+      if: branch = master
       language: java
       jdk: oraclejdk11
       before_script:
@@ -17,6 +18,7 @@ jobs:
        - echo "Run test coverage and Quality Gate"
        - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=GregoireChateau9_sample-application-students
     - stage: "Build and Test"
+      if: branch = master
       language: node.js
       node_js: "12.20"
       before_script:
@@ -24,6 +26,7 @@ jobs:
       script:
         - echo "NPM install and build"
     - stage: "Package"
+      if: branch = master
       before_script:
         - cd sample-application-backend
       script:
@@ -31,6 +34,7 @@ jobs:
         - docker login -u $DOCKERUSR -p $DOCKERPSW
         - docker push chateauneuf/back_sample_application_student
     - stage: "Package"
+      if: branch = master
       before_script:
         - cd sample-application-frontend
       script:
